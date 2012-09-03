@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9605811115F55EF400CB7107 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 9605811015F55EF400CB7107 /* bird.png */; };
+		9690F62B15F52BAD008F428A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62A15F52BAD008F428A /* UIKit.framework */; };
+		9690F62D15F52BAD008F428A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62C15F52BAD008F428A /* Foundation.framework */; };
+		9690F62F15F52BAD008F428A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62E15F52BAD008F428A /* CoreGraphics.framework */; };
+		9690F63515F52BAD008F428A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F63315F52BAD008F428A /* InfoPlist.strings */; };
+		9690F63715F52BAD008F428A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9690F63615F52BAD008F428A /* main.m */; };
+		9690F63B15F52BAD008F428A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9690F63A15F52BAD008F428A /* AppDelegate.m */; };
+		9690F64215F52D6C008F428A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F64115F52D6C008F428A /* CoreMotion.framework */; };
+		9690F64615F52FDD008F428A /* LabyrinthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9690F64415F52FDD008F428A /* LabyrinthViewController.m */; };
+		9690F64715F52FDD008F428A /* LabyrinthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690F64515F52FDD008F428A /* LabyrinthViewController.xib */; };
+		9690F64A15F5301F008F428A /* LabyrinthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9690F64915F5301F008F428A /* LabyrinthView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9605811015F55EF400CB7107 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
+		9690F62615F52BAD008F428A /* LabyrinthBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabyrinthBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9690F62A15F52BAD008F428A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9690F62C15F52BAD008F428A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9690F62E15F52BAD008F428A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9690F63215F52BAD008F428A /* LabyrinthBall-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LabyrinthBall-Info.plist"; sourceTree = "<group>"; };
+		9690F63415F52BAD008F428A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9690F63615F52BAD008F428A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9690F63815F52BAD008F428A /* LabyrinthBall-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LabyrinthBall-Prefix.pch"; sourceTree = "<group>"; };
+		9690F63915F52BAD008F428A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9690F63A15F52BAD008F428A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9690F64115F52D6C008F428A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		9690F64315F52FDD008F428A /* LabyrinthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabyrinthViewController.h; path = ../LabyrinthViewController.h; sourceTree = "<group>"; };
+		9690F64415F52FDD008F428A /* LabyrinthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabyrinthViewController.m; path = ../LabyrinthViewController.m; sourceTree = "<group>"; };
+		9690F64515F52FDD008F428A /* LabyrinthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LabyrinthViewController.xib; path = ../LabyrinthViewController.xib; sourceTree = "<group>"; };
+		9690F64815F5301F008F428A /* LabyrinthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabyrinthView.h; path = ../LabyrinthView.h; sourceTree = "<group>"; };
+		9690F64915F5301F008F428A /* LabyrinthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabyrinthView.m; path = ../LabyrinthView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9690F62315F52BAD008F428A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9690F64215F52D6C008F428A /* CoreMotion.framework in Frameworks */,
+				9690F62B15F52BAD008F428A /* UIKit.framework in Frameworks */,
+				9690F62D15F52BAD008F428A /* Foundation.framework in Frameworks */,
+				9690F62F15F52BAD008F428A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9690F61B15F52BAD008F428A = {
+			isa = PBXGroup;
+			children = (
+				9690F63015F52BAD008F428A /* LabyrinthBall */,
+				9690F62915F52BAD008F428A /* Frameworks */,
+				9690F62715F52BAD008F428A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9690F62715F52BAD008F428A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9690F62615F52BAD008F428A /* LabyrinthBall.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9690F62915F52BAD008F428A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9690F62A15F52BAD008F428A /* UIKit.framework */,
+				9690F62C15F52BAD008F428A /* Foundation.framework */,
+				9690F62E15F52BAD008F428A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9690F63015F52BAD008F428A /* LabyrinthBall */ = {
+			isa = PBXGroup;
+			children = (
+				9690F64315F52FDD008F428A /* LabyrinthViewController.h */,
+				9690F64415F52FDD008F428A /* LabyrinthViewController.m */,
+				9690F64515F52FDD008F428A /* LabyrinthViewController.xib */,
+				9690F64815F5301F008F428A /* LabyrinthView.h */,
+				9690F64915F5301F008F428A /* LabyrinthView.m */,
+				9690F63915F52BAD008F428A /* AppDelegate.h */,
+				9690F63A15F52BAD008F428A /* AppDelegate.m */,
+				9690F63115F52BAD008F428A /* Supporting Files */,
+			);
+			path = LabyrinthBall;
+			sourceTree = "<group>";
+		};
+		9690F63115F52BAD008F428A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9690F63215F52BAD008F428A /* LabyrinthBall-Info.plist */,
+				9605811015F55EF400CB7107 /* bird.png */,
+				9690F64115F52D6C008F428A /* CoreMotion.framework */,
+				9690F63315F52BAD008F428A /* InfoPlist.strings */,
+				9690F63615F52BAD008F428A /* main.m */,
+				9690F63815F52BAD008F428A /* LabyrinthBall-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9690F62515F52BAD008F428A /* LabyrinthBall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9690F63E15F52BAD008F428A /* Build configuration list for PBXNativeTarget "LabyrinthBall" */;
+			buildPhases = (
+				9690F62215F52BAD008F428A /* Sources */,
+				9690F62315F52BAD008F428A /* Frameworks */,
+				9690F62415F52BAD008F428A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LabyrinthBall;
+			productName = LabyrinthBall;
+			productReference = 9690F62615F52BAD008F428A /* LabyrinthBall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9690F61D15F52BAD008F428A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Rose and Liam";
+			};
+			buildConfigurationList = 9690F62015F52BAD008F428A /* Build configuration list for PBXProject "LabyrinthBall" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9690F61B15F52BAD008F428A;
+			productRefGroup = 9690F62715F52BAD008F428A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9690F62515F52BAD008F428A /* LabyrinthBall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9690F62415F52BAD008F428A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9690F63515F52BAD008F428A /* InfoPlist.strings in Resources */,
+				9690F64715F52FDD008F428A /* LabyrinthViewController.xib in Resources */,
+				9605811115F55EF400CB7107 /* bird.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9690F62215F52BAD008F428A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9690F63715F52BAD008F428A /* main.m in Sources */,
+				9690F63B15F52BAD008F428A /* AppDelegate.m in Sources */,
+				9690F64615F52FDD008F428A /* LabyrinthViewController.m in Sources */,
+				9690F64A15F5301F008F428A /* LabyrinthView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9690F63315F52BAD008F428A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9690F63415F52BAD008F428A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9690F63C15F52BAD008F428A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9690F63D15F52BAD008F428A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9690F63F15F52BAD008F428A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LabyrinthBall/LabyrinthBall-Prefix.pch";
+				INFOPLIST_FILE = "LabyrinthBall/LabyrinthBall-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9690F64015F52BAD008F428A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LabyrinthBall/LabyrinthBall-Prefix.pch";
+				INFOPLIST_FILE = "LabyrinthBall/LabyrinthBall-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9690F62015F52BAD008F428A /* Build configuration list for PBXProject "LabyrinthBall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9690F63C15F52BAD008F428A /* Debug */,
+				9690F63D15F52BAD008F428A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9690F63E15F52BAD008F428A /* Build configuration list for PBXNativeTarget "LabyrinthBall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9690F63F15F52BAD008F428A /* Debug */,
+				9690F64015F52BAD008F428A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9690F61D15F52BAD008F428A /* Project object */;
+}
