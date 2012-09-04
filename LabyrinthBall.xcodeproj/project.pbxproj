@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CA8D31715F58DED00CB7423 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA8D31615F58DED00CB7423 /* QuartzCore.framework */; };
 		9605811115F55EF400CB7107 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 9605811015F55EF400CB7107 /* bird.png */; };
 		9690F62B15F52BAD008F428A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62A15F52BAD008F428A /* UIKit.framework */; };
 		9690F62D15F52BAD008F428A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62C15F52BAD008F428A /* Foundation.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CA8D31615F58DED00CB7423 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9605811015F55EF400CB7107 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
 		9690F62615F52BAD008F428A /* LabyrinthBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabyrinthBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9690F62A15F52BAD008F428A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA8D31715F58DED00CB7423 /* QuartzCore.framework in Frameworks */,
 				9690F64215F52D6C008F428A /* CoreMotion.framework in Frameworks */,
 				9690F62B15F52BAD008F428A /* UIKit.framework in Frameworks */,
 				9690F62D15F52BAD008F428A /* Foundation.framework in Frameworks */,
@@ -75,6 +78,7 @@
 		9690F62915F52BAD008F428A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CA8D31615F58DED00CB7423 /* QuartzCore.framework */,
 				9690F62A15F52BAD008F428A /* UIKit.framework */,
 				9690F62C15F52BAD008F428A /* Foundation.framework */,
 				9690F62E15F52BAD008F428A /* CoreGraphics.framework */,

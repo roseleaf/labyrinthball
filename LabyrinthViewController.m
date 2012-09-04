@@ -32,6 +32,8 @@
         if (self.motionManager.deviceMotionAvailable) {
             NSLog(@"Device Motion is Available");
              [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target:self selector:@selector(getMotionData) userInfo:nil repeats:YES];
+            [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target: self selector: @selector(checkForCollisions) userInfo:nil repeats:YES];
+            
         }
 
     }
@@ -63,6 +65,31 @@
 
     
     [self.labyrinthView animateBallWithRoll:(float)roll andWithPitch:(float)pitch];
+}
+
+
+-(void)checkForCollisions{
+    
+    
+//    if(CGRectContainsPoint(self.labyrinthView.line, self.labyrinthView.ballLocationCenter)) {
+//        NSLog(@"Labyrinth View Origin X: %f",self.labyrinthView.line.origin.x);
+//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.line.origin.y);
+//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.ballLocationCenter.x);
+//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.ballLocationCenter.y);
+//        
+//        
+//        float circleX = self.labyrinthView.ballLocationCenter.x;
+//        float circleY = self.labyrinthView.ballLocationCenter.y;
+//        
+//    if ((circleX < self.labyrinthView.line.origin.x) | (circleX > (self.labyrinthView.line.origin.x + self.labyrinthView.line.size.width)) | (circleY < self.labyrinthView.line.origin.y) | (circleY > (self.labyrinthView.line.origin.y + self.labyrinthView.line.size.height))) {
+//        
+//    } else {
+//        NSLog(@"Intersecting the wall");
+//    }
+
+        
+        
+//    }
 }
 
 
