@@ -29,8 +29,6 @@
         if (self.motionManager.deviceMotionAvailable) {
             NSLog(@"Device Motion is Available");
              [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target:self selector:@selector(getMotionData) userInfo:nil repeats:YES];
-            [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target: self selector: @selector(checkForCollisions) userInfo:nil repeats:YES];
-            
         }
 
     }

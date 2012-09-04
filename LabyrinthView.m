@@ -27,11 +27,11 @@
         
         //create lines:
         self.lineArray = [NSMutableArray new];
-        for (int i = 0; i<=8; i++) {
+        for (int i = 0; i<=5; i++) {
             Line* line = [Line generateHorizontalLineWithBounds:self.bounds];
             [self.lineArray addObject:line];
         }
-        for (int i = 0; i<=8; i++) {
+        for (int i = 0; i<=5; i++) {
             Line* line = [Line generateVerticalLineWithBounds:self.bounds];
             [self.lineArray addObject:line];
         }
@@ -45,6 +45,8 @@
 //        self.birdLayer.position = newLocation;
         self.birdLayer.contents = (__bridge id)[bird CGImage];
         [self.layer addSublayer:self.birdLayer];
+        
+        
 
     }
     return self;
@@ -62,19 +64,15 @@
     for (Line* line in self.lineArray){
         [line drawLineWithContext:ctx];
     }
-    
-//    [self createLineForContext:ctx withRect:line];
-    
-    
-
 }
 
--(void)createLineForContext:(CGContextRef)ctx withRect:(CGRect)rect {
-    [[UIColor redColor]set];
-//    self.line = CGRectMake(150.0, 240.0, 20.0, 5.0);
-    CGContextFillRect(ctx, rect);
-//    CGContextFillPath(ctx);
-}
+
+//-(void)createLineForContext:(CGContextRef)ctx withRect:(CGRect)rect {
+//    [[UIColor redColor]set];
+////    self.line = CGRectMake(150.0, 240.0, 20.0, 5.0);
+//    CGContextFillRect(ctx, rect);
+////    CGContextFillPath(ctx);
+//}
 
 //-(void)createBallForContext:(CGContextRef)ctx {
 //    [[UIColor blackColor]set];
@@ -82,8 +80,10 @@
 //    CGContextFillPath(ctx);
 //}
 
--(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
+-(BOOL)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
 
+    BOOL intersectsAnyLine = NO;
+    
     CGPoint newLocation;
     float x = self.birdLayer.position.x + roll *10;
     float y = self.birdLayer.position.y + pitch *10;
@@ -102,35 +102,25 @@
     
     for (Line *line in self.lineArray) {
         if (CGRectIntersectsRect (line.lineRect, birdMoveRect)) {
-            //        self.birdLayer.position = self.birdLayer.position;
-        } else {
-            [CATransaction begin];
-            [CATransaction setDisableActions:YES];
-            self.birdLayer.position = newLocation;
-            [CATransaction commit];
+            intersectsAnyLine = YES;
+            [self tryNewPositionWithLocation:(CGPoint)];
+            
         }
-
     }
     
-    
-    
-    // if (checkForIntersection:(CGPoint)self.birdLocation) {
-            //self.birdLayer.position = self.birdLayer.position
-        // else
-            // self.birdLayer.position = newLocation;
+    if (!intersectsAnyLine){
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        self.birdLayer.position = newLocation;
+        [CATransaction commit];
+    }
 }
 
--(BOOL)checkForIntersection:(CGPoint)birdLocation {
-    BOOL intersect = NO;
+- (CGPoint)tryNewPosition {
+    
 }
 
 
-
-//-(void)stopBirdFromHittingWall{
-//    if (line.) {
-//        <#statements#>
-//    }
-//}
 
 
 @end
