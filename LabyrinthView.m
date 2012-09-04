@@ -8,7 +8,7 @@
 
 #import "LabyrinthView.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "Line.h"
 
 @interface LabyrinthView ()
 
@@ -24,7 +24,18 @@
         [self setNeedsDisplay];
         // Initialization code
         [self setBackgroundColor:[UIColor whiteColor]];
-//        newLocation = CGPointMake(50.0, 50.0);
+        
+        //create lines:
+        self.lineArray = [NSMutableArray new];
+        for (int i = 0; i<=8; i++) {
+            Line* line = [Line generateHorizontalLineWithBounds:self.bounds];
+            [self.lineArray addObject:line];
+        }
+        for (int i = 0; i<=8; i++) {
+            Line* line = [Line generateVerticalLineWithBounds:self.bounds];
+            [self.lineArray addObject:line];
+        }
+
         self.birdLayer = [CALayer new];
         
         
@@ -46,17 +57,22 @@
 {
     // Drawing code
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    [self createBallForContext:ctx];
-    [self createLineForContext:ctx];
+    [[UIColor redColor]set];
+
+    for (Line* line in self.lineArray){
+        [line drawLineWithContext:ctx];
+    }
+    
+//    [self createLineForContext:ctx withRect:line];
     
     
 
 }
 
--(void)createLineForContext:(CGContextRef)ctx {
+-(void)createLineForContext:(CGContextRef)ctx withRect:(CGRect)rect {
     [[UIColor redColor]set];
-    self.line = CGRectMake(150.0, 240.0, 20.0, 5.0);
-    CGContextFillRect(ctx, self.line);
+//    self.line = CGRectMake(150.0, 240.0, 20.0, 5.0);
+    CGContextFillRect(ctx, rect);
 //    CGContextFillPath(ctx);
 }
 
@@ -67,7 +83,6 @@
 //}
 
 -(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
-//    NSLog(@"The roll is %f and the pitch is %f", roll, pitch);
 
     CGPoint newLocation;
     float x = self.birdLayer.position.x + roll *10;
@@ -85,14 +100,20 @@
     
     CGRect birdMoveRect = CGRectMake(newLocation.x-15, newLocation.y-15, 15, 25);
     
-    if (CGRectIntersectsRect (self.line, birdMoveRect)) {
-//        self.birdLayer.position = self.birdLayer.position;
-    } else {
-        [CATransaction begin];
-        [CATransaction setDisableActions:YES];
-        self.birdLayer.position = newLocation;
-        [CATransaction commit];
+    for (Line *line in self.lineArray) {
+        if (CGRectIntersectsRect (line.lineRect, birdMoveRect)) {
+            //        self.birdLayer.position = self.birdLayer.position;
+        } else {
+            [CATransaction begin];
+            [CATransaction setDisableActions:YES];
+            self.birdLayer.position = newLocation;
+            [CATransaction commit];
+        }
+
     }
+    
+    
+    
     // if (checkForIntersection:(CGPoint)self.birdLocation) {
             //self.birdLayer.position = self.birdLayer.position
         // else

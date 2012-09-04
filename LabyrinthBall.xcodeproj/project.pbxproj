@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0CA8D31715F58DED00CB7423 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA8D31615F58DED00CB7423 /* QuartzCore.framework */; };
 		9605811115F55EF400CB7107 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 9605811015F55EF400CB7107 /* bird.png */; };
+		96908CA615F67E6700AE59A3 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 96908CA515F67E6700AE59A3 /* Line.m */; };
 		9690F62B15F52BAD008F428A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62A15F52BAD008F428A /* UIKit.framework */; };
 		9690F62D15F52BAD008F428A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62C15F52BAD008F428A /* Foundation.framework */; };
 		9690F62F15F52BAD008F428A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9690F62E15F52BAD008F428A /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		0CA8D31615F58DED00CB7423 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9605811015F55EF400CB7107 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
+		96908CA415F67E6700AE59A3 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Line.h; path = ../Line.h; sourceTree = "<group>"; };
+		96908CA515F67E6700AE59A3 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Line.m; path = ../Line.m; sourceTree = "<group>"; };
 		9690F62615F52BAD008F428A /* LabyrinthBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabyrinthBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9690F62A15F52BAD008F428A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9690F62C15F52BAD008F428A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 		9690F63015F52BAD008F428A /* LabyrinthBall */ = {
 			isa = PBXGroup;
 			children = (
+				96908CA415F67E6700AE59A3 /* Line.h */,
+				96908CA515F67E6700AE59A3 /* Line.m */,
 				9690F64315F52FDD008F428A /* LabyrinthViewController.h */,
 				9690F64415F52FDD008F428A /* LabyrinthViewController.m */,
 				9690F64515F52FDD008F428A /* LabyrinthViewController.xib */,
@@ -182,6 +187,7 @@
 				9690F63B15F52BAD008F428A /* AppDelegate.m in Sources */,
 				9690F64615F52FDD008F428A /* LabyrinthViewController.m in Sources */,
 				9690F64A15F5301F008F428A /* LabyrinthView.m in Sources */,
+				96908CA615F67E6700AE59A3 /* Line.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

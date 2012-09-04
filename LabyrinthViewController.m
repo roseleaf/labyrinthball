@@ -25,9 +25,6 @@
         self.motionManager = [CMMotionManager new];
         [self.motionManager startDeviceMotionUpdates];
         self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
-
-        self.labyrinthView = [LabyrinthView new];
-        self.view = self.labyrinthView;
         
         if (self.motionManager.deviceMotionAvailable) {
             NSLog(@"Device Motion is Available");
@@ -38,6 +35,11 @@
 
     }
     return self;
+}
+
+-(void)loadView{
+    self.labyrinthView = [[LabyrinthView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame]];
+    self.view = self.labyrinthView;
 }
 
 - (void)viewDidLoad

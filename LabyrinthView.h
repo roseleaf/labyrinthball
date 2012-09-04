@@ -10,9 +10,7 @@
 
 @interface LabyrinthView : UIView
 -(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch;
-
-@property CGRect line;
-
-@property CALayer* birdLayer;
+@property (strong) CALayer* birdLayer;
+@property (strong) NSMutableArray* lineArray;
 
 @end
