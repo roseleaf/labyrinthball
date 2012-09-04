@@ -24,14 +24,14 @@
         [self setNeedsDisplay];
         // Initialization code
         [self setBackgroundColor:[UIColor whiteColor]];
-        self.newLocation = CGPointMake(50.0, 50.0);
+//        newLocation = CGPointMake(50.0, 50.0);
         self.birdLayer = [CALayer new];
         
         
         UIImage *bird = [UIImage imageNamed:@"bird.png"];
 
-        self.birdLayer.bounds = CGRectMake(self.newLocation.x, self.newLocation.y, 40, 40);
-        self.birdLayer.position = self.newLocation;
+        self.birdLayer.bounds = CGRectMake(50, 50, 40, 40);
+//        self.birdLayer.position = newLocation;
         self.birdLayer.contents = (__bridge id)[bird CGImage];
         [self.layer addSublayer:self.birdLayer];
 
@@ -69,8 +69,9 @@
 -(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
 //    NSLog(@"The roll is %f and the pitch is %f", roll, pitch);
 
-    float x = self.newLocation.x + roll;
-    float y = self.newLocation.y + pitch;
+    CGPoint newLocation;
+    float x = self.birdLayer.position.x + roll *10;
+    float y = self.birdLayer.position.y + pitch *10;
     if (x < 10.0) {
         x = 10.0; } else if (x > (self.bounds.size.width - 10.0)) {
             x = (self.bounds.size.width - 10.0);
@@ -80,19 +81,22 @@
     } else if (y > (self.bounds.size.height - 10.0)){
         y = (self.bounds.size.height - 10.0);
     }
-    self.newLocation = CGPointMake(x, y);
+    newLocation = CGPointMake(x, y);
     
-    CGRect birdMoveRect = CGRectMake(self.newLocation.x-15, self.newLocation.y-15, 15, 25);
+    CGRect birdMoveRect = CGRectMake(newLocation.x-15, newLocation.y-15, 15, 25);
     
     if (CGRectIntersectsRect (self.line, birdMoveRect)) {
 //        self.birdLayer.position = self.birdLayer.position;
     } else {
-        self.birdLayer.position = self.newLocation;
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        self.birdLayer.position = newLocation;
+        [CATransaction commit];
     }
     // if (checkForIntersection:(CGPoint)self.birdLocation) {
             //self.birdLayer.position = self.birdLayer.position
         // else
-            // self.birdLayer.position = self.newLocation;
+            // self.birdLayer.position = newLocation;
 }
 
 -(BOOL)checkForIntersection:(CGPoint)birdLocation {
