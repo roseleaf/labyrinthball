@@ -9,10 +9,13 @@
 #import "LabyrinthViewController.h"
 #import "LabyrinthView.h"
 #import <CoreMotion/CoreMotion.h>
+#import <GameKit/GameKit.h>
 
-@interface LabyrinthViewController ()
+
+@interface LabyrinthViewController () <GKSessionDelegate, GKPeerPickerControllerDelegate>
 @property CMMotionManager* motionManager;
 @property LabyrinthView* labyrinthView;
+@property GKSession* session;
 @end
 
 @implementation LabyrinthViewController
@@ -30,6 +33,15 @@
             NSLog(@"Device Motion is Available");
              [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target:self selector:@selector(getMotionData) userInfo:nil repeats:YES];
         }
+        
+        GKPeerPickerController* picker = [[GKPeerPickerController alloc] init];
+        picker.delegate = self;
+        picker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
+        
+        self.session = [[GKSession alloc] initWithSessionID:@"applepie27" displayName:@"Bird1" sessionMode:GKSessionModePeer];
+        [self.session setDataReceiveHandler:self withContext:nil]; 
+        self.session.delegate = self;
+        self.session.available = YES;
 
     }
     return self;
@@ -43,56 +55,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
+
+
+//GamkeKit Delegate Methods:
+-(void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
+    [self.session acceptConnectionFromPeer:peerID error:nil];
+    session.available = NO;
+    NSLog(@"connectingClient:%@", peerID);
+}
+
+-(void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state{
+    if (state==GKPeerStateAvailable) {
+        NSLog(@"Connecting to peer %@", peerID);
+        [session connectToPeer:peerID withTimeout:3];
+    }
+    else if (state == GKPeerStateConnected){
+        NSLog(@"Connected to peer %@", peerID);
+        session.available = NO;
+    }
+}
+
+-(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session andContext:(void*)context {
+    NSLog(@"%@", data);
+}
+
+
+//GKPeerPicker Delegate Methods:
+- (void)peerPickerController:(GKPeerPickerController *)picker didSelectConnectionType:(GKPeerPickerConnectionType)type{
+    //Tells the delegate that the user selected a connection type.
+
+}
+
+//-(GKSession*)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type{
+//    
+//}
+
+
+-(void)peerPickerController:(GKPeerPickerController *)picker didConnectPeer:(NSString *)peerID toSession:(GKSession *)session{
+    self.session = session;
+    session.delegate = self;
+    [session setDataReceiveHandler:self withContext:nil];
+    picker.delegate = nil;
+    [picker dismiss];
+}
+
+
+
+
+
+//CoreMotion Method for Device Orientation:
 -(void)getMotionData{
     CMDeviceMotion *currentMotion = self.motionManager.deviceMotion;
     CMAttitude *currentAttitude = currentMotion.attitude;
     float roll = currentAttitude.roll;
     float pitch = currentAttitude.pitch;
     
-//    NSLog(@"roll: %f", roll);
-//    NSLog(@"pitch: %.2f", pitch);
-
-    
     [self.labyrinthView animateBallWithRoll:(float)roll andWithPitch:(float)pitch];
 }
 
 
--(void)checkForCollisions{
-    
-    
-//    if(CGRectContainsPoint(self.labyrinthView.line, self.labyrinthView.ballLocationCenter)) {
-//        NSLog(@"Labyrinth View Origin X: %f",self.labyrinthView.line.origin.x);
-//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.line.origin.y);
-//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.ballLocationCenter.x);
-//        NSLog(@"Labyrinth View Origin y: %f",self.labyrinthView.ballLocationCenter.y);
-//        
-//        
-//        float circleX = self.labyrinthView.ballLocationCenter.x;
-//        float circleY = self.labyrinthView.ballLocationCenter.y;
-//        
-//    if ((circleX < self.labyrinthView.line.origin.x) | (circleX > (self.labyrinthView.line.origin.x + self.labyrinthView.line.size.width)) | (circleY < self.labyrinthView.line.origin.y) | (circleY > (self.labyrinthView.line.origin.y + self.labyrinthView.line.size.height))) {
-//        
-//    } else {
-//        NSLog(@"Intersecting the wall");
-//    }
 
-        
-        
-//    }
-}
-
-
+//Defaults:
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

@@ -39,7 +39,7 @@
         self.birdLayer = [CALayer new];
         
         
-        UIImage *bird = [UIImage imageNamed:@"bird.png"];
+        UIImage *bird = [UIImage imageNamed:@"bluebird.png"];
 
         self.birdLayer.bounds = CGRectMake(50, 50, 40, 40);
 //        self.birdLayer.position = newLocation;
@@ -59,7 +59,7 @@
 {
     // Drawing code
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [[UIColor redColor]set];
+    [[UIColor brownColor]set];
 
     for (Line* line in self.lineArray){
         [line drawLineWithContext:ctx];
@@ -80,7 +80,7 @@
 //    CGContextFillPath(ctx);
 //}
 
--(BOOL)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
+-(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch {
 
     BOOL intersectsAnyLine = NO;
     
@@ -98,14 +98,27 @@
     }
     newLocation = CGPointMake(x, y);
     
-    CGRect birdMoveRect = CGRectMake(newLocation.x-15, newLocation.y-15, 15, 25);
-    
-    for (Line *line in self.lineArray) {
-        if (CGRectIntersectsRect (line.lineRect, birdMoveRect)) {
+    CGRect birdMoveRect = CGRectMake(newLocation.x, newLocation.y, 15, 25);
+        
+    if ([self isInvalidNextMove:birdMoveRect]) {
+        intersectsAnyLine = YES;
+        //Only use the roll
+        CGRect birdMoveRect = CGRectMake(newLocation.x, self.birdLayer.position.y, 15, 25);
+        if ([self isInvalidNextMove:birdMoveRect]) {
+            //Only use pitch
             intersectsAnyLine = YES;
-            [self tryNewPositionWithLocation:(CGPoint)];
-            
+            CGRect birdMoveRect = CGRectMake(self.birdLayer.position.x, newLocation.y, 15, 25);
+            if ([self isInvalidNextMove:birdMoveRect]) {
+                intersectsAnyLine = YES;
+            } else {
+                intersectsAnyLine = NO;
+            }
+        } else {
+            intersectsAnyLine = NO;
         }
+
+    } else {
+        intersectsAnyLine = NO;
     }
     
     if (!intersectsAnyLine){
@@ -116,11 +129,15 @@
     }
 }
 
-- (CGPoint)tryNewPosition {
-    
+-(BOOL)isInvalidNextMove:(CGRect)birdMoveRect {
+    BOOL intersectsAnyLine = NO;
+    for (Line *line in self.lineArray) {
+        if (CGRectIntersectsRect (line.lineRect, birdMoveRect)) {
+            intersectsAnyLine = YES;
+        }
+    }
+    return intersectsAnyLine;
 }
-
-
 
 
 @end

@@ -15,7 +15,7 @@
     Line* line = [Line new];
     float x = arc4random()%(int)viewBounds.size.width;
     float y = arc4random()%(int)viewBounds.size.height;
-    float length = arc4random()%150;
+    float length = (arc4random()%200)+50;
     line.lineRect = CGRectMake(x, y, 5.0, length);
     return line;
 }
@@ -25,7 +25,7 @@
     Line* line = [Line new];
     float x = arc4random()%(int)viewBounds.size.width;
     float y = arc4random()%(int)viewBounds.size.height;
-    float height = arc4random()%150;
+    float height = (arc4random()%200)+50;
     line.lineRect = CGRectMake(x, y, height, 5.0);
     return line;
 }
