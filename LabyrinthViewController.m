@@ -37,7 +37,7 @@
         GKPeerPickerController* picker = [[GKPeerPickerController alloc] init];
         picker.delegate = self;
         picker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
-        
+        [picker show];
         self.session = [[GKSession alloc] initWithSessionID:@"applepie27" displayName:@"Bird1" sessionMode:GKSessionModePeer];
         [self.session setDataReceiveHandler:self withContext:nil]; 
         self.session.delegate = self;
@@ -55,6 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 
@@ -89,9 +90,9 @@
 
 }
 
-//-(GKSession*)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type{
-//    
-//}
+-(GKSession*)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type{
+    
+}
 
 
 -(void)peerPickerController:(GKPeerPickerController *)picker didConnectPeer:(NSString *)peerID toSession:(GKSession *)session{
@@ -100,6 +101,7 @@
     [session setDataReceiveHandler:self withContext:nil];
     picker.delegate = nil;
     [picker dismiss];
+    NSLog(@"did Connect to Peer: %@", peerID);
 }
 
 
