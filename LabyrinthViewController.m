@@ -38,10 +38,6 @@
         picker.delegate = self;
         picker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
         [picker show];
-        self.session = [[GKSession alloc] initWithSessionID:@"applepie27" displayName:@"Bird1" sessionMode:GKSessionModePeer];
-        [self.session setDataReceiveHandler:self withContext:nil]; 
-        self.session.delegate = self;
-        self.session.available = YES;
 
     }
     return self;
@@ -73,11 +69,19 @@
         NSLog(@"Connected to peer %@", peerID);
     }
 }
-//
--(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session andContext:(void*)context {
+
+
+
+-(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session context:(void*)context {
+    
     NSLog(@"%@", data);
 }
 
+//-(void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context {
+//    
+//    NSString* message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//    [[[UIAlertView alloc] initWithTitle:peer message:message delegate:self cancelButtonTitle:@"Accept" otherButtonTitles:nil] show];
+//}
 
 
 //GKPeerPicker Delegate Methods:
@@ -101,6 +105,9 @@
     NSLog(@"did Connect to Peer: %@", peerID);
 }
 
+-(void)session:(GKSession *)session didFailWithError:(NSError *)error{
+    NSLog(@"%@", error);
+}
 
 
 
