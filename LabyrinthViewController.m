@@ -69,12 +69,12 @@
     }
 }
 
-
-
-
 -(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session context:(void*)context {
     
     NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    NSString* receivedPosition = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    self.labyrinthView.opponentBirdLayer.position = CGPointFromString(receivedPosition);
 }
 
 

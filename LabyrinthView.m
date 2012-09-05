@@ -40,12 +40,16 @@
         
         
         UIImage *bird = [UIImage imageNamed:@"bluebird.png"];
+        UIImage *opponentBird = [UIImage imageNamed:@"redbird.png"];
 
+        
         self.birdLayer.bounds = CGRectMake(50, 50, 40, 30);
-//        self.birdLayer.position = newLocation;
         self.birdLayer.contents = (__bridge id)[bird CGImage];
         [self.layer addSublayer:self.birdLayer];
-        
+
+        self.opponentBirdLayer.bounds = CGRectMake(50, 50, 40, 30);
+        self.opponentBirdLayer.contents = (__bridge id)[opponentBird CGImage];
+        [self.layer addSublayer:self.opponentBirdLayer];
         
 
     }

@@ -11,6 +11,7 @@
 @interface LabyrinthView : UIView
 -(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch;
 @property (strong) CALayer* birdLayer;
+@property (strong) CALayer* opponentBirdLayer;
 @property (strong) NSMutableArray* lineArray;
 @property CGPoint birdPosition;
 
