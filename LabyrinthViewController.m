@@ -61,27 +61,23 @@
 
 
 
-//GamkeKit Delegate Methods:
--(void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
-    [self.session acceptConnectionFromPeer:peerID error:nil];
-    session.available = NO;
-    NSLog(@"connectingClient:%@", peerID);
-}
-
+////GamkeKit Delegate Methods:
+//-(void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
+//    [self.session acceptConnectionFromPeer:peerID error:nil];
+//    session.available = NO;
+//    NSLog(@"connectingClient:%@", peerID);
+//}
+//
 -(void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state{
-    if (state==GKPeerStateAvailable) {
-        NSLog(@"Connecting to peer %@", peerID);
-        [session connectToPeer:peerID withTimeout:3];
-    }
-    else if (state == GKPeerStateConnected){
+    if (state==GKPeerStateConnected) {
         NSLog(@"Connected to peer %@", peerID);
-        session.available = NO;
     }
 }
-
+//
 -(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session andContext:(void*)context {
     NSLog(@"%@", data);
 }
+
 
 
 //GKPeerPicker Delegate Methods:
@@ -91,6 +87,7 @@
 }
 
 -(GKSession*)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type{
+    return self.session;
     
 }
 
