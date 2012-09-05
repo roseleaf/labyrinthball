@@ -10,6 +10,7 @@
 #import "LabyrinthView.h"
 #import <CoreMotion/CoreMotion.h>
 #import <GameKit/GameKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface LabyrinthViewController () <GKSessionDelegate, GKPeerPickerControllerDelegate>
@@ -25,6 +26,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.labyrinthView = [[LabyrinthView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame]];
+        self.view = self.labyrinthView;
+        
         self.motionManager = [CMMotionManager new];
         [self.motionManager startDeviceMotionUpdates];
         self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
@@ -38,14 +43,14 @@
         picker.delegate = self;
         picker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
         [picker show];
+        
+
 
     }
     return self;
 }
 
 -(void)loadView{
-    self.labyrinthView = [[LabyrinthView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame]];
-    self.view = self.labyrinthView;
 }
 
 - (void)viewDidLoad
@@ -57,13 +62,7 @@
 
 
 
-////GamkeKit Delegate Methods:
-//-(void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
-//    [self.session acceptConnectionFromPeer:peerID error:nil];
-//    session.available = NO;
-//    NSLog(@"connectingClient:%@", peerID);
-//}
-//
+//GamkeKit Delegate Methods:
 -(void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state{
     if (state==GKPeerStateConnected) {
         NSLog(@"Connected to peer %@", peerID);
@@ -72,10 +71,17 @@
 
 
 
+
 -(void)receiveData:(NSData*)data fromPeer:(NSString*) peer inSession:(GKSession*)session context:(void*)context {
     
-    NSLog(@"%@", data);
+    NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
 }
+
+
+
+
+
+
 
 //-(void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context {
 //    
@@ -118,6 +124,11 @@
     CMAttitude *currentAttitude = currentMotion.attitude;
     float roll = currentAttitude.roll;
     float pitch = currentAttitude.pitch;
+    
+    NSString *str = NSStringFromCGPoint(self.labyrinthView.birdLayer.position);
+    NSData* position = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [self.session sendDataToAllPeers:position withDataMode:GKSendDataReliable error:nil];
     
     [self.labyrinthView animateBallWithRoll:(float)roll andWithPitch:(float)pitch];
 }

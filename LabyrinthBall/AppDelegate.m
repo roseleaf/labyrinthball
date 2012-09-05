@@ -8,11 +8,18 @@
 
 #import "AppDelegate.h"
 #import "LabyrinthViewController.h"
+#import "Line.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    Line* line = [Line new];
+////    line.lineRect = @"lineRect";
+//    
+//    NSData* lineData = [NSKeyedArchiver archivedDataWithRootObject:line];
+    
+    
     LabyrinthViewController* lvc = [LabyrinthViewController new];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

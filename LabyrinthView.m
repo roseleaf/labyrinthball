@@ -41,7 +41,7 @@
         
         UIImage *bird = [UIImage imageNamed:@"bluebird.png"];
 
-        self.birdLayer.bounds = CGRectMake(50, 50, 40, 40);
+        self.birdLayer.bounds = CGRectMake(50, 50, 40, 30);
 //        self.birdLayer.position = newLocation;
         self.birdLayer.contents = (__bridge id)[bird CGImage];
         [self.layer addSublayer:self.birdLayer];
@@ -85,8 +85,8 @@
     BOOL intersectsAnyLine = NO;
     
     CGPoint newLocation;
-    float x = self.birdLayer.position.x + roll *10;
-    float y = self.birdLayer.position.y + pitch *10;
+    float x = self.birdLayer.position.x + roll;
+    float y = self.birdLayer.position.y + pitch;
     if (x < 10.0) {
         x = 10.0; } else if (x > (self.bounds.size.width - 10.0)) {
             x = (self.bounds.size.width - 10.0);

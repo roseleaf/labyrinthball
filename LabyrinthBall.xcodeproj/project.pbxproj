@@ -20,9 +20,9 @@
 		9690F64715F52FDD008F428A /* LabyrinthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9690F64515F52FDD008F428A /* LabyrinthViewController.xib */; };
 		9690F64A15F5301F008F428A /* LabyrinthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9690F64915F5301F008F428A /* LabyrinthView.m */; };
 		969DFF8015F6A80100141ABB /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 969DFF7F15F6A80100141ABB /* bird.png */; };
-		969DFF8215F6BAE400141ABB /* bluebird.png in Resources */ = {isa = PBXBuildFile; fileRef = 969DFF8115F6BAE400141ABB /* bluebird.png */; };
 		969DFF8415F6BC0700141ABB /* redbird.png in Resources */ = {isa = PBXBuildFile; fileRef = 969DFF8315F6BC0700141ABB /* redbird.png */; };
 		969DFF8615F6C1BB00141ABB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969DFF8515F6C1BB00141ABB /* GameKit.framework */; };
+		969DFF9615F7CFB300141ABB /* bluebird.png in Resources */ = {isa = PBXBuildFile; fileRef = 969DFF9515F7CFB300141ABB /* bluebird.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +46,9 @@
 		9690F64815F5301F008F428A /* LabyrinthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabyrinthView.h; path = ../LabyrinthView.h; sourceTree = "<group>"; };
 		9690F64915F5301F008F428A /* LabyrinthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabyrinthView.m; path = ../LabyrinthView.m; sourceTree = "<group>"; };
 		969DFF7F15F6A80100141ABB /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
-		969DFF8115F6BAE400141ABB /* bluebird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebird.png; sourceTree = "<group>"; };
 		969DFF8315F6BC0700141ABB /* redbird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbird.png; sourceTree = "<group>"; };
 		969DFF8515F6C1BB00141ABB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		969DFF9515F7CFB300141ABB /* bluebird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluebird.png; path = ../../../bluebird.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +120,8 @@
 			children = (
 				9690F63215F52BAD008F428A /* LabyrinthBall-Info.plist */,
 				969DFF7F15F6A80100141ABB /* bird.png */,
+				969DFF9515F7CFB300141ABB /* bluebird.png */,
 				969DFF8315F6BC0700141ABB /* redbird.png */,
-				969DFF8115F6BAE400141ABB /* bluebird.png */,
 				9690F63315F52BAD008F428A /* InfoPlist.strings */,
 				9690F63615F52BAD008F428A /* main.m */,
 				9690F63815F52BAD008F428A /* LabyrinthBall-Prefix.pch */,
@@ -183,8 +183,8 @@
 				9690F63515F52BAD008F428A /* InfoPlist.strings in Resources */,
 				9690F64715F52FDD008F428A /* LabyrinthViewController.xib in Resources */,
 				969DFF8015F6A80100141ABB /* bird.png in Resources */,
-				969DFF8215F6BAE400141ABB /* bluebird.png in Resources */,
 				969DFF8415F6BC0700141ABB /* redbird.png in Resources */,
+				969DFF9615F7CFB300141ABB /* bluebird.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

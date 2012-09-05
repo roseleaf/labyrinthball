@@ -12,5 +12,6 @@
 -(void)animateBallWithRoll:(float)roll andWithPitch:(float)pitch;
 @property (strong) CALayer* birdLayer;
 @property (strong) NSMutableArray* lineArray;
+@property CGPoint birdPosition;
 
 @end
