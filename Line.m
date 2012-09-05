@@ -27,8 +27,8 @@
 
 +(Line*)generateHorizontalLineWithBounds:(CGRect)viewBounds{
     Line* line = [Line new];
-    float x = arc4random()%(int)viewBounds.size.width;
-    float y = arc4random()%(int)viewBounds.size.height;
+    float x = arc4random()%(int)viewBounds.size.width+80;
+    float y = arc4random()%(int)viewBounds.size.height+80;
     float length = (arc4random()%200)+50;
     line.lineRect = CGRectMake(x, y, 5.0, length);
     return line;
@@ -37,8 +37,8 @@
 
 +(Line*)generateVerticalLineWithBounds:(CGRect)viewBounds{
     Line* line = [Line new];
-    float x = arc4random()%(int)viewBounds.size.width;
-    float y = arc4random()%(int)viewBounds.size.height;
+    float x = arc4random()%(int)viewBounds.size.width+80;
+    float y = arc4random()%(int)viewBounds.size.height+80;
     float height = (arc4random()%200)+50;
     line.lineRect = CGRectMake(x, y, height, 5.0);
     return line;

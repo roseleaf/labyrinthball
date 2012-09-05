@@ -37,6 +37,7 @@
         }
 
         self.birdLayer = [CALayer new];
+        self.opponentBirdLayer = [CALayer new];
         
         
         UIImage *bird = [UIImage imageNamed:@"bluebird.png"];
